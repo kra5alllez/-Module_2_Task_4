@@ -21,38 +21,26 @@ namespace Module_2_Task_4_Vasylchenko.Services
                 new RabbitHome(6, TypeFood.VegetableOrigin)
             };
 
-            var arcticFoxCounter = 0;
-            var wolfCounter = 0;
-            var polarBearCounter = 0;
-            var rabbitHomeCounter = 0;
+            var animalCounter = new Animal[10];
+            var counter = 0;
             for (var i = 0; i < animals.Length; i++)
             {
-                ArcticFox arcticFox = animals[i] as ArcticFox;
-                if (arcticFox != null)
+                for (var j = 0; j < animalCounter.Length; j++)
                 {
-                    arcticFoxCounter++;
-                }
-
-                Wolf wolf = animals[i] as Wolf;
-                if (wolf != null)
-                {
-                    wolfCounter++;
-                }
-
-                PolarBear polarBear = animals[i] as PolarBear;
-                if (polarBear != null)
-                {
-                    polarBearCounter++;
-                }
-
-                RabbitHome rabbitHome = animals[i] as RabbitHome;
-                if (rabbitHome != null)
-                {
-                    rabbitHomeCounter++;
+                    if (animalCounter[j] == null)
+                    {
+                        animalCounter[j] = animals[i];
+                        counter++;
+                        break;
+                    }
+                    else if (animals[i].Name == animalCounter[j].Name)
+                    {
+                        break;
+                    }
                 }
             }
 
-            return new Aviary { Animal = animals, Wolf = wolfCounter, ArcticFox = arcticFoxCounter, PolarBear = polarBearCounter, RabbitHome = rabbitHomeCounter };
+            return new Aviary { Animal = animals, UniqueAnimal = animalCounter, AnimalCounter = counter };
         }
     }
 }

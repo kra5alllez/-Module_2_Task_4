@@ -33,10 +33,14 @@ namespace Module_2_Task_4_Vasylchenko
                 Console.WriteLine($"Name: {animal.Name} Weight: {animal.Weight} Type Of Food: {animal.TypeOfFood} Familing Of Animal: {animal.FamiliesAnimal}");
             }
 
-            Console.WriteLine($"Quantity Arctic Fox : {animals.ArcticFox}");
-            Console.WriteLine($"Quantity Polar Bear : {animals.PolarBear}");
-            Console.WriteLine($"Quantity RabbitHome : {animals.RabbitHome}");
-            Console.WriteLine($"Quantity Wolf : {animals.Wolf}");
+            Console.WriteLine($"Different kinds of animals {animals.AnimalCounter} :");
+            for (var i = 0; i < animals.UniqueAnimal.Length; i++)
+            {
+                if (animals.UniqueAnimal[i] != null)
+                {
+                    Console.WriteLine($"{animals.UniqueAnimal[i].Name}");
+                }
+            }
 
             var sortAnimals = animals.Animal.FindAnimal(TypeFood.AnimalOrigin, FamiliesAnimal.Canines);
             Console.WriteLine("Canines and which are meat eaters:");

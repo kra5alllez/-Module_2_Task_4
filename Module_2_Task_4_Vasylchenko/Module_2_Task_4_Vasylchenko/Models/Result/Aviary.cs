@@ -4,9 +4,7 @@
     {
         public Animal[] Animal { get; set; }
 
-        public int Wolf { get; set; }
-        public int RabbitHome { get; set; }
-        public int PolarBear { get; set; }
-        public int ArcticFox { get; set; }
+        public Animal[] UniqueAnimal { get; set; }
+        public int AnimalCounter { get; set; }
     }
 }
